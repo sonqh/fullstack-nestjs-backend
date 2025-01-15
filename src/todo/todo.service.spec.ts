@@ -38,7 +38,12 @@ describe('TodoService', () => {
   describe('create', () => {
     it('should create a todo', async () => {
       const createTodoInput: CreateTodoInput = { title: 'Test Todo' };
-      const createdTodo = { id: 1, title: 'Test Todo', createdAt: new Date(), updatedAt: new Date() };
+      const createdTodo = {
+        id: 1,
+        title: 'Test Todo',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       jest.spyOn(prisma.todo, 'create').mockResolvedValue(createdTodo);
 
       expect(await service.create(createTodoInput)).toEqual(createdTodo);
@@ -50,7 +55,14 @@ describe('TodoService', () => {
 
   describe('findAll', () => {
     it('should return all todos', async () => {
-      const todos = [{ id: 1, title: 'Test Todo', createdAt: new Date(), updatedAt: new Date() }];
+      const todos = [
+        {
+          id: 1,
+          title: 'Test Todo',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+      ];
       jest.spyOn(prisma.todo, 'findMany').mockResolvedValue(todos);
 
       expect(await service.findAll()).toEqual(todos);
@@ -60,7 +72,12 @@ describe('TodoService', () => {
 
   describe('findOne', () => {
     it('should return a single todo', async () => {
-      const todo = { id: 1, title: 'Test Todo', createdAt: new Date(), updatedAt: new Date() };
+      const todo = {
+        id: 1,
+        title: 'Test Todo',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       jest.spyOn(prisma.todo, 'findUnique').mockResolvedValue(todo);
 
       expect(await service.findOne(1)).toEqual(todo);
@@ -71,7 +88,12 @@ describe('TodoService', () => {
   describe('update', () => {
     it('should update a todo', async () => {
       const updateTodoInput: UpdateTodoInput = { id: 1, title: 'Updated Todo' };
-      const updatedTodo = { id: 1, title: 'Updated Todo', createdAt: new Date(), updatedAt: new Date() };
+      const updatedTodo = {
+        id: 1,
+        title: 'Updated Todo',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       jest.spyOn(prisma.todo, 'update').mockResolvedValue(updatedTodo);
 
       expect(await service.update(1, updateTodoInput)).toEqual(updatedTodo);
@@ -84,7 +106,12 @@ describe('TodoService', () => {
 
   describe('remove', () => {
     it('should remove a todo', async () => {
-      const removedTodo = { id: 1, title: 'Test Todo', createdAt: new Date(), updatedAt: new Date() };
+      const removedTodo = {
+        id: 1,
+        title: 'Test Todo',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      };
       jest.spyOn(prisma.todo, 'delete').mockResolvedValue(removedTodo);
 
       expect(await service.remove(1)).toEqual(removedTodo);
